@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Alshy.ECHO - Free Music</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="icons/AlshyEcho.png">
+    <meta name="theme-color" content="#6d28d9">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading" class="loading-screen">
+        <div class="loading-content">
+            <div class="logo">
+                <i class="fas fa-music"></i>
+                <h1>Alshy<span>.ECHO</span></h1>
+            </div>
+            <div class="spinner"></div>
+            <p>Loading your music experience...</p>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container" id="main-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-top">
+                <button class="menu-btn" id="menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="logo">
+                    <i class="fas fa-music"></i>
+                    <h1>Alshy<span>.ECHO</span></h1>
+                </div>
+                <button class="theme-btn" id="theme-btn">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="search-container">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="search-input" placeholder="Search songs, artists, or albums...">
+                    <button id="clear-search" class="clear-btn">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="search-suggestions" id="search-suggestions"></div>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="nav-tabs">
+                <button class="nav-btn active" data-tab="home">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </button>
+                <button class="nav-btn" data-tab="explore">
+                    <i class="fas fa-compass"></i>
+                    <span>Explore</span>
+                </button>
+                <button class="nav-btn" data-tab="library">
+                    <i class="fas fa-heart"></i>
+                    <span>Library</span>
+                </button>
+                <button class="nav-btn" data-tab="playlists">
+                    <i class="fas fa-list"></i>
+                    <span>Playlists</span>
+                </button>
+            </nav>
+        </header>
+
+        <!-- Sidebar Menu -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h3>Menu</h3>
+                <button class="close-sidebar" id="close-sidebar">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="sidebar-content">
+                <a href="#" class="sidebar-item active">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="#" class="sidebar-item">
+                    <i class="fas fa-fire"></i>
+                    <span>Trending</span>
+                </a>
+                <a href="#" class="sidebar-item">
+                    <i class="fas fa-music"></i>
+                    <span>Genres</span>
+                </a>
+                <a href="#" class="sidebar-item">
+                    <i class="fas fa-history"></i>
+                    <span>History</span>
+                </a>
+                <a href="#" class="sidebar-item">
+                    <i class="fas fa-download"></i>
+                    <span>Downloads</span>
+                </a>
+                <a href="#" class="sidebar-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Home Tab -->
+            <div class="tab-content active" id="home-tab">
+                <section class="hero-section">
+                    <h2>Welcome to Alshy.ECHO</h2>
+                    <p>Stream millions of songs for free, anywhere, anytime</p>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <i class="fas fa-music"></i>
+                            <span>10M+ Songs</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-headphones"></i>
+                            <span>Free Forever</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-globe"></i>
+                            <span>Worldwide</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Quick Play -->
+                <section class="section">
+                    <h3 class="section-title">Quick Play</h3>
+                    <div class="quick-play-grid">
+                        <button class="quick-play-btn" data-genre="pop">
+                            <i class="fas fa-play-circle"></i>
+                            <span>Pop Hits</span>
+                        </button>
+                        <button class="quick-play-btn" data-genre="rock">
+                            <i class="fas fa-guitar"></i>
+                            <span>Rock Classics</span>
+                        </button>
+                        <button class="quick-play-btn" data-genre="hiphop">
+                            <i class="fas fa-microphone"></i>
+                            <span>Hip Hop</span>
+                        </button>
+                        <button class="quick-play-btn" data-genre="electronic">
+                            <i class="fas fa-sliders-h"></i>
+                            <span>Electronic</span>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Featured Playlists -->
+                <section class="section">
+                    <div class="section-header">
+                        <h3 class="section-title">Featured Playlists</h3>
+                        <a href="#" class="see-all">See All</a>
+                    </div>
+                    <div class="playlist-grid" id="featured-playlists">
+                        <!-- Will be populated by JS -->
+                    </div>
+                </section>
+
+                <!-- Recently Played -->
+                <section class="section">
+                    <div class="section-header">
+                        <h3 class="section-title">Recently Played</h3>
+                        <button class="clear-btn" id="clear-history">Clear</button>
+                    </div>
+                    <div class="song-list" id="recent-songs">
+                        <!-- Will be populated by JS -->
+                    </div>
+                </section>
+            </div>
+
+            <!-- Explore Tab -->
+            <div class="tab-content" id="explore-tab">
+                <h2 class="page-title">Explore Music</h2>
+                <div class="genres-grid" id="genres-grid">
+                    <!-- Will be populated by JS -->
+                </div>
+            </div>
+
+            <!-- Library Tab -->
+            <div class="tab-content" id="library-tab">
+                <h2 class="page-title">Your Library</h2>
+                <div class="library-stats">
+                    <div class="stat-card">
+                        <i class="fas fa-heart"></i>
+                        <h4>Liked Songs</h4>
+                        <p id="liked-count">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-history"></i>
+                        <h4>Recently Played</h4>
+                        <p id="played-count">0</p>
+                    </div>
+                </div>
+                <div class="song-list" id="liked-songs">
+                    <!-- Will be populated by JS -->
+                </div>
+            </div>
+
+            <!-- Playlists Tab -->
+            <div class="tab-content" id="playlists-tab">
+                <h2 class="page-title">Your Playlists</h2>
+                <button class="create-playlist-btn" id="create-playlist">
+                    <i class="fas fa-plus"></i>
+                    Create New Playlist
+                </button>
+                <div class="playlist-list" id="user-playlists">
+                    <!-- Will be populated by JS -->
+                </div>
+            </div>
+        </main>
+
+        <!-- Now Playing Bar -->
+        <div class="now-playing-bar" id="now-playing-bar" style="display: none;">
+            <div class="song-info">
+                <img id="current-thumbnail" src="https://via.placeholder.com/50" alt="Album Art">
+                <div class="song-details">
+                    <h4 id="current-title">Not Playing</h4>
+                    <p id="current-artist">Select a song</p>
+                </div>
+                <button class="like-btn" id="like-btn">
+                    <i class="far fa-heart"></i>
+                </button>
+            </div>
+            
+            <div class="player-controls">
+                <button id="shuffle-btn" class="control-btn">
+                    <i class="fas fa-random"></i>
+                </button>
+                <button id="prev-btn" class="control-btn">
+                    <i class="fas fa-step-backward"></i>
+                </button>
+                <button id="play-btn" class="play-pause-btn">
+                    <i class="fas fa-play"></i>
+                </button>
+                <button id="next-btn" class="control-btn">
+                    <i class="fas fa-step-forward"></i>
+                </button>
+                <button id="repeat-btn" class="control-btn">
+                    <i class="fas fa-redo"></i>
+                </button>
+            </div>
+
+            <div class="player-progress">
+                <span id="current-time">0:00</span>
+                <div class="progress-bar" id="progress-bar">
+                    <div class="progress" id="progress"></div>
+                </div>
+                <span id="duration">0:00</span>
+            </div>
+
+            <div class="extra-controls">
+                <button id="queue-btn" class="control-btn">
+                    <i class="fas fa-list"></i>
+                </button>
+                <button id="volume-btn" class="control-btn">
+                    <i class="fas fa-volume-up"></i>
+                </button>
+                <div class="volume-slider" id="volume-slider">
+                    <input type="range" min="0" max="100" value="80" id="volume">
+                </div>
+            </div>
+        </div>
+
+        <!-- Queue Modal -->
+        <div class="modal" id="queue-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Queue</h3>
+                    <button class="close-modal" id="close-queue">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="queue-list" id="queue-list">
+                        <!-- Queue items will be added here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- YouTube Player -->
+    <div id="player"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
