@@ -34,3 +34,4 @@ vercel login
 
 # Deploy
 vercel --prod"# Alshy.Echo" 
+"# echo-echo" 
